@@ -1,10 +1,9 @@
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
 
 import { Footer, GitHubCorner, QuizBackground, QuizLogo, Widget } from '../src/components'
 import db from '../db.json'
-
-{/* <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"></link> */}
+import { useState } from 'react'
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -19,6 +18,14 @@ const QuizContainer = styled.div`
 `
 
 export default function Home() {
+  const router = useRouter()
+  const [name, setName] = useState('')
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    router.push(`/quiz?name=${name}`)
+  }
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
@@ -33,14 +40,19 @@ export default function Home() {
         </Widget>
         <Widget>
           <Widget.Content>
-            <h1>Quizes da galera</h1>
-
-            <p>lorem ipsum</p>
+            <form onSubmit={handleSubmit}>
+              <input placeholder="Nome"
+                value={name} onChange={e => setName(e.target.value)}
+              />
+              <button type="submit" disabled={!name}>
+                Jogar
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
         <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/carlos-HFC" />
+      <GitHubCorner projectUrl="https://github.com/carlos-HFC/aluraquiz" />
     </QuizBackground>
   )
 }

@@ -25,6 +25,10 @@ const FooterWrapper = styled.footer`
     span {
       text-decoration: underline;
     }
+
+    p {
+      font-size: 14px;
+    }
   }
 `;
 

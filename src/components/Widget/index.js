@@ -36,6 +36,26 @@ Widget.Content = styled.div`
     list-style: none;
     padding: 0;
   }
+
+  input {
+    width: 100%;
+    padding: 6px;
+  }
+
+  button {
+    background-color: ${({ theme }) => theme.colors.secondary};
+    border-radius: ${({ theme }) => theme.radius};
+    color: white;
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+
+    &:disabled  {
+      opacity: 0.8;
+      cursor: not-allowed;
+    }
+  }
 `
 
 Widget.Header = styled.header`

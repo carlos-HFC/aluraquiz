@@ -20,7 +20,7 @@ export const Widget = styled.div`
     font-weight: 400;
     line-height: 1;
   }
-`
+`;
 
 Widget.Content = styled.div`
   padding: 24px 32px 32px 32px;
@@ -36,27 +36,7 @@ Widget.Content = styled.div`
     list-style: none;
     padding: 0;
   }
-
-  input {
-    width: 100%;
-    padding: 6px;
-  }
-
-  button {
-    background-color: ${({ theme }) => theme.colors.secondary};
-    border-radius: ${({ theme }) => theme.radius};
-    color: white;
-    width: 100%;
-    padding: 8px;
-    margin-top: 8px;
-    cursor: pointer;
-
-    &:disabled  {
-      opacity: 0.8;
-      cursor: not-allowed;
-    }
-  }
-`
+`;
 
 Widget.Header = styled.header`
   display: flex;
@@ -67,5 +47,22 @@ Widget.Header = styled.header`
 
   * {
     margin: 0;
+  }
+`;
+
+Widget.Topic = styled.a`
+  outline: 0;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.contrast};
+  border-radius: ${({ theme }) => theme.radius};
+  background: ${({ theme }) => `${theme.colors.primary}40`};
+  padding: 10px 15px;
+  margin-bottom: 9px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+
+  &:hover, &:focus{
+    opacity: 0.7;
   }
 `

@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const SVGWrapper = styled.svg`
-  fill: ${({ theme }) => theme.colors.secondary};
+  fill: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.contrast};
   cursor: pointer;
 

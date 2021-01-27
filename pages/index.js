@@ -1,21 +1,8 @@
-import styled from 'styled-components'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 
-import { Footer, GitHubCorner, QuizBackground, QuizLogo, Widget } from '../src/components'
+import { Button, Footer, GitHubCorner, Input, QuizBackground, QuizContainer, QuizLogo, Widget } from '../src/components'
 import db from '../db.json'
-import { useState } from 'react'
-
-const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`
 
 export default function Home() {
   const router = useRouter()
@@ -41,12 +28,12 @@ export default function Home() {
         <Widget>
           <Widget.Content>
             <form onSubmit={handleSubmit}>
-              <input placeholder="Nome"
+              <Input placeholder="Digite o seu nome" name="Nome do usuário" title="Digite o seu nome"
                 value={name} onChange={e => setName(e.target.value)}
               />
-              <button type="submit" disabled={!name}>
+              <Button type="submit" disabled={!name}>
                 Jogar
-              </button>
+              </Button>
             </form>
           </Widget.Content>
         </Widget>

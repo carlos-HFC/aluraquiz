@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-import { Button, Footer, GitHubCorner, Input, QuizBackground, QuizContainer, QuizLogo, Widget } from '../src/components'
+import { Alternative, Button, Footer, GitHubCorner, Input, QuizBackground, QuizContainer, QuizLogo, Widget } from '../src/components'
 import db from '../db.json'
 
 function Loading() {
@@ -17,7 +17,51 @@ function Loading() {
   )
 }
 
-function QuestionWidget({ index, onSubmit, question, total }) {
+function Result({ result }) {
+  const acertos = result.filter(res => res).length
+
+  return (
+    <Widget>
+      <Widget.Header>
+        Carregando...
+      </Widget.Header>
+      <Widget.Content>
+        <p>
+          Você acertou {acertos} perguntas
+        </p>
+        <ul>
+          {result.map((res, i) => (
+            <li key={i}>
+              #0{i + 1} Resultado: {' '}
+              {res ? 'Acertou' : 'Errou'}
+            </li>
+          ))}
+        </ul>
+      </Widget.Content>
+    </Widget>
+  )
+}
+
+function QuestionWidget({ addResult, index, onSubmit, question, total }) {
+  const [selectedAlternative, setSelectedAlternative] = useState(undefined)
+  const [submit, setSubmit] = useState(false)
+
+  const correct = selectedAlternative === question.answer
+  const status = correct ? "SUCCESS" : "ERROR"
+
+  function handleSubmit(e) {
+    e.preventDefault()
+
+    setSubmit(true)
+    addResult(selectedAlternative === question.answer)
+
+    setTimeout(() => {
+      onSubmit()
+      setSubmit(false)
+      setSelectedAlternative(undefined)
+    }, 1000);
+  }
+
   return (
     <Widget>
       <Widget.Header>
@@ -27,17 +71,20 @@ function QuestionWidget({ index, onSubmit, question, total }) {
       <Widget.Content>
         <h2>{question.title}</h2>
         <p>{question.description}</p>
-        <form onSubmit={onSubmit}>
+        <Alternative onSubmit={handleSubmit}>
           {question.alternatives.map((alternative, i) => (
-            <Widget.Topic key={i} as="label" htmlFor={`alternative${i}`}>
-              <input type="radio" name="Alternativas" id={`alternative${i}`} /* style={{ display: "none" }} */ />
+            <Widget.Topic key={i} as="label" htmlFor={`alternative${i}`} data-selected={selectedAlternative === i} data-status={submit && status}>
+              <input type="radio" name="Alternativas" id={`alternative${i}`}
+                onChange={() => setSelectedAlternative(i)}
+                style={{ display: "none" }}
+              />
               {alternative}
             </Widget.Topic>
           ))}
-          <Button type="submit">
+          <Button type="submit" disabled={selectedAlternative === undefined}>
             Confirmar
           </Button>
-        </form>
+        </Alternative>
       </Widget.Content>
     </Widget>
   )
@@ -46,6 +93,7 @@ function QuestionWidget({ index, onSubmit, question, total }) {
 export default function Quiz() {
   const [screen, setScreen] = useState('LOADING')
   const [index, setIndex] = useState(0)
+  const [result, setResult] = useState([])
 
   const question = db.questions[index]
 
@@ -53,11 +101,13 @@ export default function Quiz() {
     setTimeout(() => setScreen('QUIZ'), 1000)
   }, [])
 
-  function handleSubmit(e) {
-    e.preventDefault()
-
+  function handleSubmit() {
     if (index + 1 < db.questions.length) setIndex(index + 1)
     else setScreen('RESULT')
+  }
+
+  function addResult(result) {
+    setResult(res => [...res, result])
   }
 
   return (
@@ -65,8 +115,8 @@ export default function Quiz() {
       <QuizContainer>
         <QuizLogo />
         {screen === 'LOADING' && <Loading />}
-        {screen === 'QUIZ' && <QuestionWidget onSubmit={handleSubmit} question={question} total={db.questions.length} index={index} />}
-        {screen === 'RESULT' && "Topperson"}
+        {screen === 'QUIZ' && <QuestionWidget onSubmit={handleSubmit} question={question} total={db.questions.length} index={index} addResult={addResult} />}
+        {screen === 'RESULT' && <Result result={result} />}
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/carlos-HFC/aluraquiz" />
     </QuizBackground>

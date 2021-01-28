@@ -4,6 +4,7 @@ const InputBase = styled.input`
   width: 100%;
   padding: 15px;
   font-size: 14px;
+  font-style: italic;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.contrast};
   background-color: ${({ theme }) => theme.colors.bgColor};
@@ -13,7 +14,7 @@ const InputBase = styled.input`
   margin-bottom: 25px;
 
   &::placeholder {
-    color: #eee;
+    color: #ddd;
     font-style: italic
   }
 `

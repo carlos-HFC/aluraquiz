@@ -4,7 +4,7 @@ export const Widget = styled.div`
   margin-top: 24px;
   margin-bottom: 24px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
-  background-color: ${({ theme }) => theme.colors.bgColor};
+  background-color: ${({ theme }) => theme.colors.bgColor}aa;
   border-radius: ${({ theme }) => theme.radius};
   overflow: hidden;
 
@@ -55,7 +55,7 @@ Widget.Topic = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.contrast};
   border-radius: ${({ theme }) => theme.radius};
-  background: ${({ theme }) => `${theme.colors.primary}40`};
+  background: ${({ theme }) => `${theme.colors.primary}50`};
   padding: 10px 15px;
   margin-bottom: 9px;
   cursor: pointer;

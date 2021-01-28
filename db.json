@@ -1,5 +1,5 @@
 {
-  "bg": "https://i.pinimg.com/originals/27/8b/f2/278bf2e7ba194be4c05914e2412c6a13.png",
+  "bg": "https://4.bp.blogspot.com/-Dk28is9rK68/VsXw9Kh2EcI/AAAAAAAAFlU/2aTbgn_ioqg/s1600/futebol%2Bamericano.jpg",
   "title": "Quiz CSS da Alura",
   "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
   "questions": [
@@ -31,8 +31,8 @@
   ],
   "theme": {
     "colors": {
-      "primary": "#12e0ff",
-      "secondary": "#1d4b5b",
+      "primary": "#8e2e2e",
+      "secondary": "#3c531d",
       "bgColor": "#171B35",
       "contrast": "#FFFFFF",
       "wrong": "#FF5722",

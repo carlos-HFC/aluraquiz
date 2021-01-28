@@ -27,7 +27,7 @@ export default function Home() {
         </Widget>
         <Widget>
           <Widget.Content>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} autoComplete="off">
               <Input placeholder="Digite o seu nome" name="Nome do usuário" title="Digite o seu nome"
                 value={name} onChange={e => setName(e.target.value)}
               />

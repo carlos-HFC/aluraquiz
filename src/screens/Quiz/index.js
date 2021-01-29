@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 
-import { Alternative, Button, Footer, GitHubCorner, Input, QuizBackground, QuizContainer, QuizLogo, Widget } from '../src/components'
-import db from '../db.json'
+import { Alternative, Button, GitHubCorner, QuizBackground, QuizContainer, QuizLogo, Widget } from '../../components'
 
 function Loading() {
   return (
@@ -90,19 +88,19 @@ function QuestionWidget({ addResult, index, onSubmit, question, total }) {
   )
 }
 
-export default function Quiz() {
+export default function Quiz({ bg, external }) {
   const [screen, setScreen] = useState('LOADING')
   const [index, setIndex] = useState(0)
   const [result, setResult] = useState([])
 
-  const question = db.questions[index]
+  const question = external[index]
 
   useEffect(() => {
     setTimeout(() => setScreen('QUIZ'), 1000)
   }, [])
 
   function handleSubmit() {
-    if (index + 1 < db.questions.length) setIndex(index + 1)
+    if (index + 1 < external.length) setIndex(index + 1)
     else setScreen('RESULT')
   }
 
@@ -111,11 +109,11 @@ export default function Quiz() {
   }
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={bg}>
       <QuizContainer>
         <QuizLogo />
         {screen === 'LOADING' && <Loading />}
-        {screen === 'QUIZ' && <QuestionWidget onSubmit={handleSubmit} question={question} total={db.questions.length} index={index} addResult={addResult} />}
+        {screen === 'QUIZ' && <QuestionWidget onSubmit={handleSubmit} question={question} total={external.length} index={index} addResult={addResult} />}
         {screen === 'RESULT' && <Result result={result} />}
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/carlos-HFC/aluraquiz" />

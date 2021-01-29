@@ -1,38 +1,77 @@
 {
   "bg": "https://4.bp.blogspot.com/-Dk28is9rK68/VsXw9Kh2EcI/AAAAAAAAFlU/2aTbgn_ioqg/s1600/futebol%2Bamericano.jpg",
-  "title": "Quiz CSS da Alura",
-  "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "title": "Quiz de NFL do Carlos",
+  "description": "Teste os seus conhecimentos sobre NFL",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
-      "description": "Essa é pra aquecer",
+      "image": "https://static-wp-tor15-prd.torcedores.com/wp-content/uploads/2017/01/feature_afc_640x360_131223_223440.jpg",
+      "title": "A antiga AFL, hoje mais conhecida como AFC, foi criada por?",
+      "description": "A AFL foi uma liga criada para competir com a NFL. Com a competitividade que ambas tinham, se fundiram, criando a NFL como conhecemos hoje, com duas conferências: AFC e NFC",
       "answer": 2,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "Peyton Manning",
+        "Roger Goodell",
+        "Lamar Hunt",
+        "George Halas"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://media.giphy.com/media/l1J9HHaIO25fdTdhS/giphy.gif",
+      "title": "Qual a franquia mais velha atualmente na liga?",
+      "description": "A franquia em questão foi fundada antes de 1900. E cuidado, muita gente erra essa, hein!",
       "answer": 0,
       "alternatives": [
-        "background: linear-gradient(#e66465, #9198e5);",
-        "background: gradient(#e66465, #9198e5);"
+        "Arizona Cardinals",
+        "Green Bay Packers",
+        "Chicago Bears",
+        "New York Giants"
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/l4FGztRST7RVKUhoI/giphy.gif",
+      "title": "Qual o jogador com mais vitórias em playoffs?",
+      "description": "A marca é tão expressiva que, ele sozinho só tem menos vitórias que apenas 3 franquias. Ademais, o jogador em segundo nesse quesito conquistou a metade. (Os dados são referentes até o fim de janeiro de 2021)",
+      "answer": 1,
+      "alternatives": [
+        "Joe Montana",
+        "Tom Brady",
+        "Peyton Manning",
+        "Aaron Rodgers"
+      ]
+    },
+    {
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUqg-a5m0FidgFZz9qYvhIbi4uZ-BCKNAyrQ&usqp=CAU",
+      "title": "Qual o jogador que, por conta de uma lesão, quase perdeu a vida e deu a volta por cima, retornando aos gramados em 2020?",
+      "description": "A história é tão impressionante que rendeu documentário pela ESPN, além de muitos fãs acharem que um dos prêmios de temporada - Comeback Player of The Year - deveria ter o seu nome.",
+      "answer": 3,
+      "alternatives": [
+        "Drew Brees",
+        "Deshawn Watson",
+        "Tua Tagovailoa",
+        "Alex Smith"
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/URuEc5hnbNIGs/giphy.gif",
+      "title": "Qual a única franquia que não tem um dono?",
+      "description": "Os donos da franquia são pessoas que compraram ações ao longo tempo. Contudo, a compra da ação é apenas administrativa, dando apenas o direito de votar a constituição de uma mesa diretora, cuja função é selecionar um comitê executivo que administrará a franquia.",
+      "answer": 0,
+      "alternatives": [
+        "Green Bay Packers",
+        "New England Patriots",
+        "Indianapolis Colts",
+        "Seattle Seahawks"
       ]
     }
   ],
   "external": [
-    ""
+    "https://aluraquiz-css.omariosouto.vercel.app/",
+    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
   ],
   "theme": {
     "colors": {
-      "primary": "#8e2e2e",
-      "secondary": "#3c531d",
+      "secondary": "#dc2429",
+      "primary": "#193d71",
       "bgColor": "#171B35",
       "contrast": "#FFFFFF",
       "wrong": "#FF5722",

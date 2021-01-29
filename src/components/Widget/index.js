@@ -1,8 +1,7 @@
 import styled from "styled-components"
 
-export const Widget = styled.div`
-  margin-top: 24px;
-  margin-bottom: 24px;
+export const Widget = styled.section`
+  margin: 24px 0;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.bgColor}aa;
   border-radius: ${({ theme }) => theme.radius};
@@ -11,7 +10,7 @@ export const Widget = styled.div`
   h1,h2,h3 {
     font-size: 16px;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.5;
     margin-bottom: 0;
   }
 
@@ -36,6 +35,12 @@ Widget.Content = styled.div`
     list-style: none;
     padding: 0;
   }
+
+  p {
+    text-align: justify;
+    line-height: 1.5;
+    hyphens: manual;
+  }
 `;
 
 Widget.Header = styled.header`
@@ -44,7 +49,7 @@ Widget.Header = styled.header`
   align-items: center;
   padding: 18px 32px;
   background-color: ${({ theme }) => theme.colors.primary};
-
+  
   * {
     margin: 0;
   }
